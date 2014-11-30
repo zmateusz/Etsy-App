@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  root 'pages#home'
+
+  resources :categories
+  get 'categories/:id/delete' => 'categories#delete', :as => :categories_delete
+
+  resources :products
+  get 'products/:id/delete' => 'products#delete', :as => :products_delete
+  
+  devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
